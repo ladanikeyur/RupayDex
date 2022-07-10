@@ -40,7 +40,7 @@ const ImageSpan = styled('span')({
   paddingLeft: 5,
 });
 const MainSpan = styled('span')({
-  color: '#DC7FB6',
+  color: '#DAA73B',
   fontFamily: 'Inter',
 });
 const SecondDiv = styled('div')({
@@ -106,7 +106,7 @@ const ChangeText = styled('span')({
   textAlign: 'center',
   fontSize: '16px',
   fontWeight: '600',
-  color: '#DC7FB6',
+  color: '#DAA73B',
   fontFamily: 'Inter',
 });
 const ShortImage = styled('img')({
@@ -115,7 +115,7 @@ const ShortImage = styled('img')({
 });
 const ShowMore = styled('p')({
   textAlign: 'center',
-  color: '#DC7FB6',
+  color: '#DAA73B',
   fontSize: '16px',
   fontWeight: '600',
   fontFamily: 'Inter',

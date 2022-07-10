@@ -32,12 +32,12 @@ const SwapPage = () => {
       <AppBar />
       <MainDiv>
         <Grid container spacing={5}>
-          {/* <Grid item sm={8}>
-            <PairLineChart />
+          <Grid item sm={8}>
+            {/* <PairLineChart /> */}
             <Quotadiv>
               <QuoteTables quotes={null} allowedSlippage={null} lastRefresh={null} userSelectedGasPrice={null} />
             </Quotadiv>
-          </Grid> */}
+          </Grid>
           <Grid item sm={4}>
             {Modal === 'Transaction' ? (
               <TransactionSettings isOpen={null} />

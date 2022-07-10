@@ -17,6 +17,9 @@ import WalletModal from '../WalletModal';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import Notification from '../swap/Swap/SwapConfirmModal/Notification';
+import WelcomeModel from '../WelcomeModel';
+import ErrorModel from '../ErrorModal';
+import AccountModal from '../AccountModal';
 
 const MainComponent = styled('div')({
   display: 'flex',
@@ -80,8 +83,8 @@ const CustomButtonActive = styled(Button)({
   marginLeft: 5,
   marginRight: 5,
   height: 60,
-  alignItems:'center',
-  display:'flex',
+  alignItems: 'center',
+  display: 'flex',
 });
 
 
@@ -97,8 +100,8 @@ const ButtonConnect = styled('button')({
   marginLeft: 5,
   height: 30,
   border: 'none',
-  alignItems:'center',
-  display:'flex'
+  alignItems: 'center',
+  display: 'flex'
 });
 const Imgs = styled('img')({
   marginTop: '15%',
@@ -145,13 +148,30 @@ const BoxsToken = styled('div')({
   width: '450px',
   height: '90%',
   borderRadius: 10,
+  position:'relative',
+});
+const WelcomBoxs = styled('div')({
+  backgroundColor: 'white',
+  width: '586px',
+  height: '98%',
+  borderRadius: 10,
+  position:'relative',
+});
+const ErrorBoxs = styled('div')({
+  width: '500px',
+  height: '90%',
+  borderRadius: 10,
+  position:'relative',
+  backgroundColor:'#F8F4EC',
+  padding:10
 });
 const Menu = styled('ul')({
   listStyle: 'none',
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
-  marginLeft:20
+  marginLeft: 20,
+  marginTop: 23
 });
 const List = styled('li')({
   fontSize: 14,
@@ -233,11 +253,11 @@ const AppBar = () => {
   return (
     <>
       <MainComponent>
-        <ControlGrids container spacing={5}>
+        <ControlGrids container spacing={2}>
           <LogoGrid item sm={1}>
             <Imgs src={Logo} height="35.5px" width="123px" alt="logo" />
           </LogoGrid>
-          <Grid item sm={CoinDetail.name === '' && CoinNetwork.name === '' ? 7: 4}>
+          <Grid item sm={CoinDetail.name === '' && CoinNetwork.name === '' ? 7 : 7}>
             <Menu>
               <List>Products</List>
               <List>App Features</List>
@@ -248,14 +268,9 @@ const AppBar = () => {
             </Menu>
             {filterInput !== '' ? <CurrencySearch searchValue={null} /> : null}
           </Grid>
-          <CustomGrid item sm={CoinDetail.name === '' && CoinNetwork.name === '' ? 4 : 7}>
-            {/* <CustomButton>Buy Crypto</CustomButton> */}
+          <CustomGrid item sm={CoinDetail.name === '' && CoinNetwork.name === '' ? 4 : 4}>
             {CoinNetwork.name !== '' ? (
-              <SwitchNetwork
-                connetNetworkData={(val: any) => {
-                  connetNetworkData(val);
-                }}
-              />
+              null
             ) : (
               <CustomButtonActive
                 onClick={() => {
@@ -282,7 +297,7 @@ const AppBar = () => {
           </CustomGrid>
         </ControlGrids>
       </MainComponent>
-      {/* <CustomModal
+      <CustomModal
         children={
           <BoxsToken>
             <WalletModal
@@ -322,7 +337,55 @@ const AppBar = () => {
         close={() => {
           closeModel();
         }}
-      /> */}
+      />
+      <CustomModal
+        children={
+          <WelcomBoxs>
+            <WelcomeModel
+              onClose={() => {
+                closeModel();
+              }}
+            />
+          </WelcomBoxs>
+        }
+        isOpen={open}
+        modalTitle="WalletModal"
+        close={() => {
+          closeModel();
+        }}
+      />
+      <CustomModal
+        children={
+          <ErrorBoxs>
+            <ErrorModel
+              onClose={() => {
+                closeModel();
+              }}
+            />
+          </ErrorBoxs>
+        }
+        isOpen={open}
+        modalTitle="WalletModal"
+        close={() => {
+          closeModel();
+        }}
+      />
+      <CustomModal
+        children={
+          <ErrorBoxs>
+            <AccountModal
+              onClose={() => {
+                closeModel();
+              }}
+            />
+          </ErrorBoxs>
+        }
+        isOpen={open}
+        modalTitle="WalletModal"
+        close={() => {
+          closeModel();
+        }}
+      />
       <Notificationdiv>
         <Notification />
       </Notificationdiv>

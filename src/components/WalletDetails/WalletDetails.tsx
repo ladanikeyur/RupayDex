@@ -1,13 +1,13 @@
 // this file is a WalletDetails file and provide a History
 import styled from '@emotion/styled';
-import { Menu, Modal } from '@mui/material';
+import { Button, Menu, Modal } from '@mui/material';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { connetNetwork, connetWallet } from '../../store/Actions';
 import filecopy from '../../assets/icon/filecopy.png';
 import History from '../../assets/icon/History.png';
 import DisConnect from '../../assets/icon/DisConnect.png';
-import DownArrow from '../../assets/icon/DownArrow.png';
+import DownIconWhite from '../../assets/icon/DownIconWhite.png';
 import { useSelector } from 'react-redux';
 import UserAssets from './UserAssets';
 import { ThunkDispatch } from 'redux-thunk';
@@ -85,9 +85,9 @@ const Into = styled('p')({
   fontFamily: 'Inter',
 });
 const ImageIconDropDown = styled('img')({
-  height: '30px',
-  width: '30px',
-  paddingRight: '20px',
+  height: '15px',
+  width: '15px',
+  marginRight: 5
 });
 const CustomMenu = styled(Menu)({
   marginTop: '5%',
@@ -200,7 +200,7 @@ const TimeImage = styled('img')({
 const Name = styled('p')({
   fontFamily: 'Inter',
   fontWeight: 800,
-  fontSize: 14,
+  fontSize: 12,
 });
 
 const Status = styled('div')({});
@@ -220,6 +220,38 @@ const BoxsModal = styled('div')({
   width: '60%',
   height: '90%',
   borderRadius: 10,
+});
+
+const CustomButtonActive = styled(Button)({
+  borderRadius: "100px",
+  background: 'linear-gradient(45deg, #D1982A 0%, #FFE180 100%)',
+  padding: '10px 24px',
+  fontSize: '15px',
+  fontWeight: '500',
+  color: 'black',
+  fontStyle: 'Inter',
+  textTransform: 'initial',
+  height: 60,
+  alignItems: 'center',
+  display: 'flex',
+  width: '100%',
+});
+
+
+const ButtonConnect = styled('button')({
+  borderRadius: "100px",
+  backgroundColor: 'white',
+  padding: '10px 24px',
+  fontSize: '16px',
+  fontWeight: '600',
+  color: 'black',
+  fontStyle: 'Inter',
+  textTransform: 'initial',
+  height: 30,
+  border: 'none',
+  alignItems: 'center',
+  display: 'flex',
+  marginLeft: 5
 });
 
 const nullObj = {
@@ -264,7 +296,7 @@ const WalletDetails = () => {
   };
   return (
     <div>
-      <CoinPrice
+      <CustomButtonActive
         id="demo-positioned-button2"
         aria-controls={openmenuPrice ? 'demo-positioned-menu2' : undefined}
         aria-haspopup="true"
@@ -273,9 +305,11 @@ const WalletDetails = () => {
       >
         <ImageIconDropDown src={CoinDetail.coin} alt="Coin" />
         <Name>{CoinDetail.Subname}</Name>
-        <Into>{CoinDetail.Price}</Into>
-        <CoinDropIcon src={DownArrow} alt="DownArrow" />
-      </CoinPrice>
+        <ButtonConnect>
+          0x37...0420
+        </ButtonConnect>
+        <CoinDropIcon src={DownIconWhite} alt="DownArrow" />
+      </CustomButtonActive>
       <CustomMenu
         id="demo-positioned-menu2"
         aria-labelledby="demo-positioned-button2"
@@ -323,11 +357,11 @@ const WalletDetails = () => {
         <CustomModal
           children={
             <BoxsModal>
-            <SwapTransactionHistory
-              close={() => {
-                handleClose();
-              }}
-            />
+              <SwapTransactionHistory
+                close={() => {
+                  handleClose();
+                }}
+              />
             </BoxsModal>
           }
           isOpen={open}

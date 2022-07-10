@@ -31,7 +31,7 @@ const styleError = {
   boxShadow: 24,
   paddingLeft: 4,
   paddingRight: 4,
-  paddingBottom: 4,
+  paddingBottom: 7,
   paddingTop: 1,
   height: '30%',
   borderRadius: 2,
@@ -66,9 +66,9 @@ const ViewMain = styled('div')({
 });
 const ViewMainActive = styled('div')({
   position: 'relative',
-  borderWidth: '1.5px',
+  borderWidth: '0px',
   borderStyle: 'solid',
-  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+  background: 'linear-gradient(45deg, #D1982A 0%, #FFE180 100%)',
   display: 'flex',
   alignItems: 'center',
   borderRadius: 10,
@@ -76,7 +76,7 @@ const ViewMainActive = styled('div')({
   margin: 5,
   paddingLeft: 15,
   paddingRight: 15,
-  borderColor: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+  borderColor: 'linear-gradient(45deg, #D1982A 0%, #FFE180 100%)',
 });
 const TitleControl = styled('div')({
   display: 'flex',
@@ -94,13 +94,13 @@ const ConditionPink = styled('p')({
   fontFamily: 'Inter',
   fontSize: '15px',
   fontWeight: '600',
-  color: '#BB36FF',
+  color: '#D1982A',
   marginRight: 5,
   marginLeft: 5,
 });
 const ConnectButton = styled(Button)({
   width: '100%',
-  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+  background: 'linear-gradient(45deg, #D1982A 0%, #FFE180 100%)',
   borderRadius: 16,
   padding: 7,
   color: 'white',
@@ -111,7 +111,7 @@ const ConnectButton = styled(Button)({
 });
 const ConnectButtonDisable = styled(Button)({
   width: '100%',
-  background: 'linear-gradient(90deg, #BB36FF 0%, #DC7FB6 100%)',
+  background: 'linear-gradient(45deg, #D1982A 0%, #FFE180 100%)',
   borderRadius: 16,
   padding: 7,
   color: 'white',
@@ -373,7 +373,7 @@ const WalletModal = (props: WalletModalProps) => {
       <TitleControl>
         <FormControlLabel control={<Radio onClick={props.setCheck} checked={props.Check ? true : false} />} label="" />
         <Condition>
-          I accept the <ConditionPink>Terms of Services</ConditionPink>
+          I accept the <ConditionPink>Terms of Services</ConditionPink>&
           <ConditionPink>Privacy Policy</ConditionPink>
         </Condition>
       </TitleControl>
